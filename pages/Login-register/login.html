@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Login</title>
+</head>
+<body class="relative min-h-screen overflow-hidden">
+    <section class="relative z-10 min-h-screen flex items-center justify-center">
+        <div class="card shadow-2xl rounded-2xl m-3 p-6  w-60 min-sm:w-full md:w-full lg:w-full max-w-sm">
+                <h2 class="font-bold text-black text-[2rem] text-center w-full mt-5 mb-3">RestorApp</h2>
+                <p class="tracking-widest text-gray-400 mb-0 font-bold text-center text-[0.8rem]">Login to your account</p>
+                <form id="login-form" class="p-3 space-y-4" action="">
+                    <label class="labels mb-0 mt-4" for="email">Email Address</label>
+                    <input required
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="name@example.com"
+                        class="w-full p-2 rounded-lg border-input border-1 border-gray-400 h-13"
+                    >
+                    <p id="errorMsg" class="text-red-500 text-sm"></p>
+                    <button type="submit" class="font-bold w-full mt-[2rem] bg-[#2ff82f] mb-[0.5rem] py-2 rounded hover:bg-[#0af00a] transition ">
+                        Sign In
+                    </button>
+                </form>
+            
+            </div>
+
+    </section>
+</body>
+</html>
