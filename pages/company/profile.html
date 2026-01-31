@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>MatchFlow - Company Profile</title>
+</head>
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    ink: '#00171f',
+                    deep: '#003459',
+                    cerulean: '#007ea7',
+                    sky: '#00a8e8'
+                }
+            }
+        }
+    }
+</script>
+
+<body class="bg-gray-100 text-ink min-h-screen">
+    <header class="bg-white text-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center">
+            <a class="p-2 font-semibold text-xl text-deep" href="#">MatchFlow</a>
+            <nav class="flex flex-wrap gap-4 sm:gap-12 text-sm items-center text-deep">
+                <a class="p-2 border-b-2 border-sky rounded hover:bg-sky/10 hover:text-sky font-medium"
+                    href="profile.html">Company Profile</a>
+                <a class="p-2 rounded hover:bg-sky/10 hover:text-sky" href="dashboard.html">Dashboard</a>
+                <a class="p-2 rounded hover:bg-sky/10 hover:text-sky" href="#">Find candidates</a>
+            </nav>
+            <button
+                class="px-4 py-2 text-sm shadow-sm text-deep border font-bold rounded hover:bg-ink hover:text-white transition-colors duration-200">
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <div class="h-40 bg-deep"></div>
+
+    <main class="max-w-7xl mx-auto px-6 -mt-16 space-y-6">
+
+        <section class="bg-white rounded-lg shadow-sm p-6 flex gap-6">
+            <input
+                class="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center text-sm font-semibold text-gray-500"
+                placeholder="         LOGO">
+            </input>
+
+            <div class="flex-1">
+                <h1 class="text-xl font-semibold text-deep">Crudzaso</h1>
+                <p class="text-sm text-gray-600">Lilitle description</p>
+
+                <div class="flex gap-4 mt-2 text-xs text-gray-500">
+                    <span>PLace of the Company</span>
+                    <span>amount of employees</span>
+                </div>
+
+                <div class="mt-4 flex gap-3">
+                    <button class="bg-sky text-white px-4 py-2 rounded text-sm font-medium">
+                        Edit Profile
+                    </button>
+                    <button class="border px-4 py-2 rounded text-sm">
+                        Manage Job Offers
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-sm font-semibold text-deep mb-2">About</h2>
+            <p class="text-sm text-gray-700 leading-relaxed">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae provident ad qui dolorem temporibus
+                voluptatum suscipit libero voluptates quod pariatur eligendi officiis id dolor non iusto nisi nobis, hic
+                culpa.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-sm font-semibold text-deep mb-4">Active Job Offers</h2>
+
+            <div class="">
+                <div class="border rounded-lg p-4 space-y-2">
+                    <p class="text-sm font-medium">Frontend Designer :C</p>
+                    <p class="text-base text-gray-500">Full-time - Remote</p>
+                    <p class="text-xs text-gray-500">Hired: 20 - Resreved: 5</p>
+                </div>
+
+                <div class="border rounded-lg p-4 space-y-2">
+                    <p class="text-sm font-medium">Back developer</p>
+                    <p class="text-base text-gray-500">Full-time - Hybrid</p>
+                    <p class="text-xs text-gray-500">Hired: 20 - Resreved: 5</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>

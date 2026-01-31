@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchFlow | Dashboard Candidato</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f4f7f9; color: #334155; }
+        .nav-active { border-bottom: 2px solid #06b6d4; color: #0f172a; }
+        .card-shadow { box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <nav class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center gap-10">
+            <h1 class="text-xl font-bold text-[#003366]">MatchFlow</h1>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-500">
+                <a href="candidate-dashboard.html" class="nav-active pb-1">Dashboard</a>
+                <a href="candidate-search.html" class="hover:text-cyan-600 transition-colors">Find jobs</a>
+                <a href="candidate-profile.html" class="hover:text-cyan-600 transition-colors">My Profile</a>
+            </div>
+        </div>
+        <button class="border border-gray-300 px-4 py-1.5 rounded text-sm font-semibold text-gray-700 hover:bg-gray-50">Logout</button>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-8">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-2xl font-bold text-[#003366]">Candidate Dashboard</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 card-shadow flex items-center justify-between">
+                <div>
+                    <span class="text-4xl font-bold text-[#003366]">3</span>
+                    <p class="text-gray-500 text-sm">Active Applications</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 card-shadow flex items-center justify-between">
+                <div>
+                    <span class="text-4xl font-bold text-[#003366]">12</span>
+                    <p class="text-gray-500 text-sm">Profile Views</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 card-shadow flex items-center justify-between">
+                <div>
+                    <span class="text-4xl font-bold text-[#003366]">5</span>
+                    <p class="text-gray-500 text-sm">Invitations</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 card-shadow flex items-center justify-between">
+                <div>
+                    <span class="text-4xl font-bold text-[#003366]">2</span>
+                    <p class="text-gray-500 text-sm">New Messages</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white card-shadow overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-100">
+                <h3 class="font-bold text-[#003366]">Recent Job Matches</h3>
+            </div>
+            <div class="divide-y divide-gray-100">
+                <div class="px-6 py-4 flex justify-between items-center">
+                    <div>
+                        <p class="font-semibold text-blue-600">Senior Fullstack Developer</p>
+                        <p class="text-xs text-gray-400">TechCorp - Pending</p>
+                    </div>
+                    <span class="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-[10px] font-bold">Pending</span>
+                </div>
+                <div class="px-6 py-4 flex justify-between items-center">
+                    <div>
+                        <p class="font-semibold text-blue-600">React Specialist</p>
+                        <p class="text-xs text-gray-400">Design Studio - Contacted</p>
+                    </div>
+                    <span class="bg-cyan-100 text-cyan-600 px-3 py-1 rounded-full text-[10px] font-bold">Contacted</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
