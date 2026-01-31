@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MatchFlow - Company Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#00171f",
+              deep: "#003459",
+              cerulean: "#007ea7",
+              sky: "#00a8e8",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="min-h-screen bg-gray-100 text-ink">
+    <!-- HEADER -->
+    <header class="bg-white shadow-sm" role="banner">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <a class="p-2 text-xl font-semibold text-deep" href="#" aria-label="MatchFlow">
+          MatchFlow
+        </a>
+
+        <nav class="flex flex-wrap items-center gap-4 text-sm text-deep sm:gap-12" aria-label="Primary navigation">
+          <a class="rounded p-2 hover:bg-sky/10 hover:text-sky" href="profile.html">Company Profile</a>
+
+          <a class="flex flex-wrap items-center gap-4 text-sm text-deep sm:gap-12" aria-label="Primary navigation">
+            Dashboard
+          </a>
+
+          <a class="rounded p-2 hover:bg-sky/10 hover:text-sky" href="#">Find Candidates</a>
+          <a
+            class="rounded border-b-2 border-sky p-2 font-medium hover:bg-sky/10 hover:text-sky"
+            href="dashboard.html"
+            aria-current="page"
+          >Job Offers</a>
+        </nav>
+
+        <button
+          class="rounded border px-4 py-2 text-sm font-bold text-deep shadow-sm transition-colors duration-200 hover:bg-ink hover:text-white"
+          type="button"
+        >
+          Log Out
+        </button>
+      </div>
+    </header>
+
+    <!-- PAGE INTRO -->
+    <section class="mx-auto max-w-7xl px-4 pt-6 sm:px-6" aria-labelledby="page-title">
+      <div class="flex flex-col gap-1">
+        <h1 id="page-title" class="text-2xl font-extrabold tracking-tight text-deep">
+          Job Offers — <span id="companyName">—</span>
+        </h1>
+        <p class="text-sm text-ink/65">
+          Create, publish, and manage your job offers. Matches are initiated by your company (no applications).
+        </p>
+      </div>
+    </section>
+
+    <!-- MAIN GRID -->
+    <main class="mx-auto grid max-w-7xl grid-cols-12 gap-6 px-4 pb-10 pt-6 sm:px-6" role="main">
+      <!-- SIDEBAR -->
+      <aside class="col-span-12 lg:col-span-4" aria-label="Sidebar">
+        <div class="space-y-6">
+          <!-- Summary card -->
+          <section
+            class="rounded-2xl border border-ink/10 bg-white shadow-[0_10px_30px_rgba(0,23,31,0.06)]"
+            aria-labelledby="summary-title"
+          >
+            <div class="p-5">
+              <header class="flex items-start gap-4">
+                <div class="grid h-12 w-12 place-items-center rounded-2xl bg-sky/10" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 21h18" stroke="#003459" stroke-width="2" stroke-linecap="round" />
+                    <path
+                      d="M7 21V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"
+                      stroke="#007ea7"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <path d="M9 9h6" stroke="#007ea7" stroke-width="2" stroke-linecap="round" />
+                    <path d="M9 13h6" stroke="#00a8e8" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </div>
+
+                <div class="min-w-0">
+                  <h2 id="summary-title" class="text-sm font-extrabold text-deep">Summary</h2>
+                  <p id="companyTagline" class="truncate text-xs font-semibold text-ink/60">—</p>
+                </div>
+              </header>
+
+              <!-- Metrics as definition list -->
+              <dl class="mt-5 grid grid-cols-2 gap-2 text-xs">
+                <div class="rounded-xl bg-ink/5 p-4">
+                  <dt class="font-semibold text-ink/60">Job Offers</dt>
+                  <dd id="metricOffers" class="mt-1 text-sm font-extrabold text-deep">—</dd>
+                </div>
+
+                <div class="rounded-xl bg-ink/5 p-4">
+                  <dt class="font-semibold text-ink/60">Active Reservations</dt>
+                  <dd id="metricReservations" class="mt-1 text-sm font-extrabold text-deep">—</dd>
+                </div>
+              </dl>
+
+              <div class="mt-4 grid grid-cols-1 gap-2">
+                <button
+                  id="newOfferBtn"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-cerulean px-3 py-2 text-xs font-extrabold text-white hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-sky"
+                  type="button"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 5v14M5 12h14" stroke="white" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                  Create New Offer
+                </button>
+              </div>
+
+              <p class="mt-4 text-[11px] text-ink/60">
+                Key rule: a candidate is only visible if <strong class="font-extrabold">Open to Work</strong> is enabled.
+              </p>
+            </div>
+          </section>
+
+          <!-- Filters card -->
+          <section
+            class="rounded-2xl border border-ink/10 bg-white shadow-[0_10px_30px_rgba(0,23,31,0.06)]"
+            aria-labelledby="filters-title"
+          >
+            <div class="p-5">
+              <header>
+                <h2 id="filters-title" class="text-sm font-extrabold text-deep">Filters</h2>
+                <p class="mt-1 text-xs text-ink/60">Search by title.</p>
+              </header>
+                <div>
+                  <label for="searchInput" class="text-[11px] font-semibold text-ink/55">Search</label>
+                  <input
+                    id="searchInput"
+                    name="q"
+                    type="text"
+                    placeholder="e.g., Frontend, Data, QA…"
+                    class="mt-1 w-full rounded-xl border border-ink/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
+                  />
+                </div>
+            </div>
+          </section>
+        </div>
+      </aside>
+
+      <!-- CONTENT -->
+      <section class="col-span-12 lg:col-span-8" aria-labelledby="offers-title">
+        <article class="rounded-2xl border border-ink/10 bg-white shadow-[0_10px_30px_rgba(0,23,31,0.06)]">
+          <header class="flex items-center justify-between border-b border-ink/10 px-6 py-5">
+            <div class="min-w-0">
+              <h2 id="offers-title" class="truncate text-lg font-extrabold text-deep">Job Offers</h2>
+              <p class="mt-1 text-xs text-ink/60">
+                Manage offers, review matches by status, and track active reservations per offer.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <div
+                id="countBadge"
+                class="rounded-full bg-cerulean/10 px-3 py-1 text-xs font-extrabold text-cerulean"
+                aria-live="polite"
+              >
+                —
+              </div>
+            </div>
+          </header>
+
+          <section aria-label="Job offer list">
+            <div id="offersList" class="divide-y divide-ink/10"></div>
+          </section>
+
+          <section id="emptyState" class="hidden px-6 py-10 text-center" aria-live="polite">
+            <h3 class="text-sm font-extrabold text-deep">No Job Offers Found</h3>
+            <p class="mt-1 text-xs text-ink/60">Create a new offer or adjust the filters.</p>
+          </section>
+        </article>
+      </section>
+    </main>
+
+    <!-- MODAL: Create/Edit Offer -->
+    <section id="modalOverlay" class="fixed inset-0 z-40 hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="absolute inset-0 bg-black/30" aria-hidden="true"></div>
+
+      <div class="relative mx-auto mt-16 w-[92%] max-w-2xl">
+        <article class="rounded-2xl border border-ink/10 bg-white shadow-[0_20px_60px_rgba(0,23,31,0.20)]">
+          <header class="flex items-center justify-between border-b border-ink/10 px-6 py-5">
+            <div>
+              <h2 id="modalTitle" class="text-lg font-extrabold text-deep">New Job Offer</h2>
+              <p class="mt-1 text-xs text-ink/60">Complete the minimum required fields to publish.</p>
+            </div>
+
+            <button
+              id="closeModalBtn"
+              class="rounded-xl border border-ink/15 bg-white px-3 py-2 text-xs font-extrabold hover:bg-ink/5 focus:outline-none focus:ring-2 focus:ring-sky"
+              type="button"
+            >
+              Close
+            </button>
+          </header>
+
+          <div class="px-6 py-6">
+            <form id="offerForm" class="space-y-5" aria-label="Create or edit job offer">
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="sm:col-span-2">
+                  <label for="fTitle" class="text-[11px] font-semibold text-ink/55">Title</label>
+                  <input
+                    id="fTitle"
+                    name="title"
+                    type="text"
+                    placeholder="e.g., Frontend Developer"
+                    class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
+                  />
+                </div>
+
+                <div>
+                  <label for="fLocation" class="text-[11px] font-semibold text-ink/55">Location</label>
+                  <input
+                    id="fLocation"
+                    name="location"
+                    type="text"
+                    placeholder="e.g., Remote / Lima"
+                    class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
+                  />
+                </div>
+
+                <div>
+                  <label for="fType" class="text-[11px] font-semibold text-ink/55">Employment Type</label>
+                  <select
+                    id="fType"
+                    name="type"
+                    class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
+                  >
+                    <option value="">—</option>
+                    <option value="full-time">Full-time</option>
+                    <option value="part-time">Part-time</option>
+                    <option value="contract">Contract</option>
+                    <option value="internship">Internship</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="fSalary" class="text-[11px] font-semibold text-ink/55">Salary (text)</label>
+                  <input
+                    id="fSalary"
+                    name="salary"
+                    type="text"
+                    placeholder="e.g., $2k–$3k"
+                    class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
+                  />
+                </div>
+
+                <div>
+                  <label for="fPublished" class="text-[11px] font-semibold text-ink/55">Status</label>
+                  <select
+                    id="fPublished"
+                    name="published"
+                    class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
+                  >
+                    <option value="false">Draft</option>
+                    <option value="true">Published</option>
+                  </select>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="fSummary" class="text-[11px] font-semibold text-ink/55">Summary</label>
+                  <textarea
+                    id="fSummary"
+                    name="summary"
+                    rows="3"
+                    placeholder="Short description for candidates"
+                    class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-2 sm:flex-row sm:justify-end">
+                <button
+                  id="modalDeleteBtn"
+                  class="hidden rounded-xl border border-red-200 bg-white px-3 py-2 text-xs font-extrabold text-red-700 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-sky"
+                  type="button"
+                >
+                  Delete
+                </button>
+
+                <button
+                  id="modalSaveBtn"
+                  class="rounded-xl bg-cerulean px-3 py-2 text-xs font-extrabold text-white hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-sky"
+                  type="button"
+                >
+                  Save
+                </button>
+              </div>
+
+              <p id="modalError" class="hidden text-xs font-semibold text-red-700" role="alert"></p>
+            </form>
+          </div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
