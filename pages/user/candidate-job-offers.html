@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MatchFlow | Find jobs</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    body { background-color: #f4f7f9; }
+    .header-bg { background-color: #003366; height: 120px; }
+    .card-shadow { box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 8px; }
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-10">
+            <h1 class="text-xl font-bold text-[#003366]">MatchFlow</h1>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-500">
+                <a href="candidate-dashboard.html">Dashboard</a>
+                <a href="candidate-search.html" class="border-b-2 border-cyan-500 text-slate-900 font-bold">Find jobs</a>
+                <a href="candidate-profile.html">My Profile</a>
+            </div>
+        </div>
+        <button class="border border-gray-300 px-4 py-1.5 rounded text-sm font-semibold">Logout</button>
+    </nav>
+
+    <div class="header-bg w-full"></div>
+</header>
+
+<main class="max-w-6xl mx-auto px-8 -mt-16">
+
+    <section class="bg-white card-shadow p-6 mb-6">
+        <h2 class="font-bold text-[#003366] text-lg mb-4">Search opportunities</h2>
+
+        <form id="filters-form" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+                <label for="filter-title" class="text-xs font-semibold text-gray-500">Role</label>
+                <input id="filter-title" type="text" class="w-full border border-gray-200 rounded px-3 py-2 text-sm">
+            </div>
+
+            <div>
+                <label for="filter-location" class="text-xs font-semibold text-gray-500">Location</label>
+                <input id="filter-location" type="text" class="w-full border border-gray-200 rounded px-3 py-2 text-sm">
+            </div>
+
+            <div>
+                <label for="filter-type" class="text-xs font-semibold text-gray-500">Type</label>
+                <select id="filter-type" class="w-full border border-gray-200 rounded px-3 py-2 text-sm">
+                    <option value="">All</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Contract">Contract</option>
+                </select>
+            </div>
+
+            <div class="flex items-end">
+                <button type="submit" class="w-full bg-cyan-500 text-white py-2 rounded text-sm font-bold hover:bg-cyan-600 transition">
+                    Search
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <section aria-labelledby="results-title">
+        <h2 id="results-title" class="sr-only">Job results</h2>
+        <div id="jobs-container" class="space-y-4"></div>
+    </section>
+
+</main>
+
+<script>
+const API_URL = "http://localhost:3000";
+
+let allJobs = [];
+let companies = [];
+
+async function loadData() {
+    const [jobsRes, companiesRes] = await Promise.all([
+        fetch(`${API_URL}/jobOffers?status=open`),
+        fetch(`${API_URL}/companies`)
+    ]);
+
+    allJobs = await jobsRes.json();
+    companies = await companiesRes.json();
+
+    renderJobs(allJobs);
+}
+
+function renderJobs(jobs) {
+    const container = document.getElementById("jobs-container");
+    container.innerHTML = "";
+
+    if (!jobs.length) {
+        container.innerHTML = '<p class="text-sm text-gray-500">No job offers found.</p>';
+        return;
+    }
+
+    jobs.forEach(job => {
+        const company = companies.find(c => c.id === job.companyId);
+
+        const article = document.createElement("article");
+        article.className = "bg-white card-shadow p-6 flex flex-col md:flex-row justify-between gap-4";
+
+        article.innerHTML = `
+            <div>
+                <h3 class="font-bold text-[#003366] text-lg">${job.title}</h3>
+                <p class="text-sm text-gray-500">${company?.name || "Unknown company"}</p>
+                <p class="text-sm text-gray-600 mt-2">${job.description}</p>
+
+                <dl class="flex flex-wrap gap-4 text-xs text-gray-500 mt-4">
+                    <div><dt class="sr-only">Location</dt><dd>${job.location}</dd></div>
+                    <div><dt class="sr-only">Employment type</dt><dd>${job.employmentType}</dd></div>
+                    <div><dt class="sr-only">Published</dt><dd>${job.createdAt}</dd></div>
+                </dl>
+            </div>
+
+        `;
+
+        container.appendChild(article);
+    });
+}
+
+document.getElementById("filters-form").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const title = document.getElementById("filter-title").value.trim().toLowerCase();
+    const location = document.getElementById("filter-location").value.trim().toLowerCase();
+    const type = document.getElementById("filter-type").value;
+
+    const filtered = allJobs.filter(job => {
+        const byTitle = job.title.toLowerCase().includes(title);
+        const byLocation = job.location.toLowerCase().includes(location);
+        const byType = type ? job.employmentType === type : true;
+        return byTitle && byLocation && byType;
+    });
+
+    renderJobs(filtered);
+});
+
+loadData();
+</script>
+
+</body>
+</html>
