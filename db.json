@@ -1,75 +1,87 @@
 {
     "companies": [
         {
-            "id": 1,
-            "role": "company",
-            "name": "Crudzaso Tech",
-            "email": "example@gmail.com",
-            "password": "123456",
-            "industry": "Technology",
-            "size": "51-200",
-            "location": "Medellín, Colombia",
-            "description": "We build fast hiring experiences"
+        "id": "1",
+        "role": "company",
+        "name": "Crudzaso Tech",
+        "email": "example@gmail.com",
+        "password": "123456",
+        "industry": "Technology",
+        "size": "51-200",
+        "location": "Medellín, Colombia",
+        "description": "We build fast hiring experiences"
         }
     ],
     "jobOffers": [
         {
-            "id": 1,
-            "companyId": 1,
-            "title": "Frontend Developer",
-            "description": "React developer with experience in SPAs",
-            "location": "Remote",
-            "employmentType": "Full-time",
-            "status": "open",
-            "createdAt": "2026-01-15"
+        "id": "1",
+        "companyId": 1,
+        "title": "Frontend Developer",
+        "description": "React developer with experience in SPAs",
+        "location": "Remote",
+        "employmentType": "Full-time",
+        "status": "open",
+        "createdAt": "2026-01-15"
         }
     ],
     "candidates": [
         {
-            "id": 1,
-            "role": "candidate",
-            "name": "Ana Gómez",
-            "email": "example@gmail.com",
-            "password": "123456",
-            "title": "Frontend Developer",
-            "skills": [
-                "React",
-                "CSS",
-                "JavaScript"
-            ],
-            "openToWork": true,
-            "location": "Bogotá",
-            "experienceYears": 3
+        "id": "1",
+        "role": "candidate",
+        "name": "Ana Gómez",
+        "email": "example@gmail.com",
+        "password": "123456",
+        "title": "Frontend Developer",
+        "skills": [
+            "React",
+            "CSS",
+            "JavaScript"
+        ],
+        "openToWork": true,
+        "location": "Bogotá",
+        "experienceYears": 3
+        },
+        {
+        "id": "ed58",
+        "role": "candidate",
+        "name": "Faiber",
+        "email": "test1@mega.com",
+        "password": "123456",
+        "title": "",
+        "skills": [],
+        "openToWork": true,
+        "location": "",
+        "experienceYears": 0
         }
     ],
     "matches": [
         {
-            "id": 1,
-            "companyId": 1,
-            "jobOfferId": 1,
-            "candidateId": 1,
-            "status": "pending",
-            "createdAt": "2026-01-20",
-            "contactUnlocked": false
+        "id": "1",
+        "companyId": 1,
+        "jobOfferId": 1,
+        "candidateId": 1,
+        "status": "pending",
+        "createdAt": "2026-01-20",
+        "contactUnlocked": false
         },
         {
-            "id": 2,
-            "companyId": 1,
-            "jobOfferId": 1,
-            "candidateId": 1,
-            "status": "hired",
-            "createdAt": "2026-01-20",
-            "contactUnlocked": false
+        "id": "2",
+        "companyId": 1,
+        "jobOfferId": 1,
+        "candidateId": 1,
+        "status": "hired",
+        "createdAt": "2026-01-20",
+        "contactUnlocked": false
         }
     ],
     "reservations": [
         {
-            "id": 1,
-            "candidateId": 1,
-            "companyId": 1,
-            "jobOfferId": 1,
-            "active": true,
-            "reservedAt": "2026-01-20"
+        "id": "1",
+        "candidateId": 1,
+        "companyId": 1,
+        "jobOfferId": 1,
+        "active": true,
+        "reservedAt": "2026-01-20"
         }
     ]
 }

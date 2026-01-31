@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Register</title>
+</head>
+<body class="relative min-h-screen overflow-hidden">
+<section class="relative z-10 min-h-screen flex items-center justify-center">
+    <div class="card rounded-2xl m-3 p-6 w-60 min-sm:w-full md:w-full lg:w-full max-w-sm">
+
+        <h2 class="font-bold text-black text-[2rem] text-center mt-5 mb-3">
+            Restor <span class="text-[#00a8e8ff]">App</span>
+        </h2>
+
+        <p class="tracking-widest text-gray-400 font-bold text-center text-[0.8rem]">
+            Create your account
+        </p>
+
+        <p class="p-3 tracking-widest font-semibold text-left text-[0.9rem]">
+            I am a...
+        </p>
+
+        <div class="flex justify-center items-center mt-1 mb-2 p-3 gap-2">
+            <div id="candidate" class="role-card border text-center w-50 border-gray-300 rounded-lg p-3 cursor-pointer">
+                <p class="font-semibold text-[0.9rem]">Candidate</p>
+                <span class="text-[0.7rem] font-semibold">Looking for work</span>
+            </div>
+
+            <div id="company" class="role-card border text-center w-50 border-gray-300 rounded-lg p-3 cursor-pointer">
+                <p class="font-semibold text-[0.9rem]">Company</p>
+                <span class="text-[0.7rem] font-semibold">Hiring Talent</span>
+            </div>
+        </div>
+
+        <form id="register-form" class="p-3 space-y-4">
+            <input type="hidden" id="role" name="role">
+
+            <label for="email">Name</label>
+            <input required id="name" type="text" name="name"
+                placeholder="name"
+                class="w-full p-2 rounded-lg h-10">
+
+            <label for="email">Email Address</label>
+            <input required id="email" type="email" name="email"
+                placeholder="name@example.com"
+                class="w-full p-2 rounded-lg h-10">
+
+            <label for="password">Password</label>
+            <input required id="password" type="password" name="password"
+                placeholder="********"
+                class="w-full p-2 rounded-lg h-10">
+
+            <label for="confirm">Confirm Password</label>
+            <input required id="confirm" type="password" name="confirm"
+                placeholder="********"
+                class="w-full p-2 rounded-lg h-10">
+
+            <p id="errorMsg" class="text-red-500 text-sm"></p>
+
+            <button type="submit"
+                class="cursor-pointer font-medium w-full mt-4 text-white bg-[#00a8e8ff] py-2 rounded transition">
+                Register
+            </button>
+        </form>
+    </div>
+</section>
+
+<script type="module" src="../../js/register.js"></script>
+</body>
+</html>
