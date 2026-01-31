@@ -13,16 +13,20 @@
             <p class="tracking-widest text-gray-400 mb-0 font-bold text-center text-[0.8rem]">Sig in to your account</p>
             <p class="p-3 tracking-widest mb-1 font-semibold text-left text-[0.9rem]">I am a...</p>
             <div class="flex justify-center items-center mt-1 mb-2 p-3 gap-2">
-                    <div id="candidate" class="candidate-card border text-center w-50 border-gray-300 rounded-lg p-3 cursor-pointer">
-                        <p class="font-medium text-[0.9rem]">Candidate</p>
-                        <span class="text-[0.7rem] font-semibold w-auto">Looking for work</span>
+                    <div id="candidate" class="role-card border text-center w-50 border-gray-300 rounded-lg p-3 cursor-pointer">
+                        <p class="font-semibold text-[0.9rem]">Candidate</p>
+                        <span class="text-[0.7rem] font-semibold w-auto text-[#006e92]">Looking for work</span>
                     </div>
-                    <div id="company" class="company-card border text-center w-50 border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 cursor-pointer">
-                        <p class="font-medium text-[0.9rem]">Company</p>
-                        <span class="text-[0.7rem] font-semibold">Looking for candidates</span>
+                    <div id="company" class="role-card border text-center w-50 border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 cursor-pointer">
+                       
+                        <p class="font-semibold text-[0.9rem]">Company</p>
+                        <div class="w-auto">
+                            <span class="text-[0.7rem] text-[#006e92] font-semibold">Hiring Talent</span>
+                        </div>
                     </div>
                 </div>
                 <form id="login-form" class="p-3 bg-blue text-[0.9rem] space-y-4" action="">
+                    <input type="hidden" id="role" name="role">
                     <label class="labels mb-0 mt-4" for="email">Email Address</label>
                     <input required
                         id="email"
@@ -32,7 +36,7 @@
                         class="w-full p-2 rounded-lg h-10"
                     >
                     <p id="errorMsg" class="text-red-500 text-sm"></p>
-                    <button type="submit" class="font-medium w-full mt-[2rem] bg-[#00a8e8ff] mb-[0.5rem] py-2 rounded hover:bg-[#0af00a] transition ">
+                    <button type="submit" class="font-medium w-full mt-[2rem] text-white bg-[#00a8e8ff] mb-[0.5rem] py-2 rounded hover:bg-[#0af00a] transition ">
                         Sign In
                     </button>
                 </form>
@@ -40,5 +44,6 @@
             </div>
 
     </section>
+    <script src="../../js/login.js"></script>
 </body>
 </html>
