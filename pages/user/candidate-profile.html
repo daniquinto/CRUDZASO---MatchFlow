@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchFlow | Mi Perfil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f4f7f9; }
+        .header-bg { background-color: #003366; height: 120px; }
+        .card-shadow { box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <nav class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-10">
+            <h1 class="text-xl font-bold text-[#003366]">MatchFlow</h1>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-500">
+                <a href="candidate-dashboard.html">Dashboard</a>
+                <a href="candidate-search.html">Find jobs</a>
+                <a href="candidate-profile.html" class="border-b-2 border-cyan-500 text-slate-900 font-bold">My Profile</a>
+            </div>
+        </div>
+        <button class="border border-gray-300 px-4 py-1.5 rounded text-sm font-semibold">Logout</button>
+    </nav>
+
+    <div class="header-bg w-full"></div>
+
+    <main class="max-w-5xl mx-auto px-8 -mt-16">
+        <div class="bg-white card-shadow p-8 mb-6 flex flex-col md:flex-row gap-6 items-center">
+            <div class="w-32 h-32 bg-gray-200 rounded flex items-center justify-center text-gray-400 font-bold">PHOTO</div>
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-2xl font-bold text-[#003366]">Mateo García</h2>
+                <p class="text-gray-500 italic">Fullstack Developer</p>
+                <p class="text-xs text-gray-400 mt-1">Medellín, Colombia • 5 years experience</p>
+                <div class="mt-4 flex gap-2 justify-center md:justify-start">
+                    <button class="bg-cyan-500 text-white px-6 py-2 rounded text-sm font-bold shadow-sm hover:bg-cyan-600 transition-all">Edit Profile</button>
+                    <button class="border border-gray-200 px-6 py-2 rounded text-sm font-bold text-gray-600 hover:bg-gray-50">Upload CV</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white card-shadow p-6 mb-6 flex justify-between items-center border-l-4 border-cyan-500">
+            <div>
+                <h3 class="font-bold text-[#003366] text-lg">Estado de Visibilidad</h3>
+                <p class="text-sm text-gray-500">Activa "Open to Work" para que las empresas puedan encontrarte.</p>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <span id="status-label" class="text-xs font-black uppercase tracking-tighter text-gray-400">Inactivo</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="open-to-work-switch" class="sr-only peer" onchange="updateAvailability()">
+                    <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-cyan-500"></div>
+                </label>
+            </div>
+        </div>
+
+        <div class="bg-white card-shadow p-8 mb-6">
+            <h3 class="font-bold text-[#003366] mb-4">About Me</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+        </div>
+
+        <div class="bg-white card-shadow p-8">
+            <h3 class="font-bold text-[#003366] mb-4">Technical Skills</h3>
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs font-medium border border-gray-200">JavaScript</span>
+                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs font-medium border border-gray-200">React.js</span>
+                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs font-medium border border-gray-200">Node.js</span>
+                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs font-medium border border-gray-200">Tailwind CSS</span>
+                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs font-medium border border-gray-200">PostgreSQL</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Función para actualizar el estado visual
+        function updateAvailability() {
+            const checkbox = document.getElementById('open-to-work-switch');
+            const label = document.getElementById('status-label');
+            const isOpen = checkbox.checked;
+
+            label.innerText = isOpen ? "Open to Work" : "Inactivo";
+            label.className = isOpen ? "text-cyan-600 font-bold" : "text-gray-400 font-bold";
+
+            
+            console.log("Visibilidad actualizada:", isOpen);
+        }
+    </script>
+</body>
+</html>
