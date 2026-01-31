@@ -26,8 +26,8 @@
 <body class="flex flex-col bg-gray-100 text-ink mx-auto">
 
     <header class="bg-white text-white w-full shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center">
-            <a class="p-2 font-semibold text-xl text-deep" href="#">MatchFlow</a>
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap md:justify-between items-center">
+            <a class="p-2 font-semibold text-xl text-deep text-center min-sm:w-full" href="#">MatchFlow</a>
             <nav class="flex flex-wrap gap-4 sm:gap-12 text-sm items-center text-deep">
                 <a class="p-2 rounded hover:bg-sky/10 hover:text-sky" href="profile.html">Company Profile</a>
                 <a class="p-2 border-b-2 border-sky rounded hover:bg-sky/10 hover:text-sky font-medium"
@@ -50,22 +50,22 @@
 
         <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="flex flex-row gap-4 bg-white p-4 rounded-lg shadow-sm">
-                <p class="text-5xl text-deep font-semibold">4</p>
+                <p id="offers-cont" class="text-5xl text-deep font-semibold">11</p>
                 <p class="text-lg mt-3 text-deep">Active Offers</p>
             </div>
 
             <div class="flex flex-row gap-4 bg-white p-4 rounded-lg shadow-sm">
-                <p class="text-5xl text-deep font-semibold">12</p>
+                <p id="matches-cont" class="text-5xl text-deep font-semibold">12</p>
                 <p class="text-lg mt-3 text-deep">Matches</p>
             </div>
 
             <div class="flex flex-row gap-4 bg-white p-4 rounded-lg shadow-sm">
-                <p class="text-5xl text-deep font-semibold">12</p>
+                <p id="reserved-cont" class="text-5xl text-deep font-semibold">13</p>
                 <p class="text-lg mt-3 text-deep">Reserved Candidates</p>
             </div>
 
             <div class="flex flex-row gap-4 bg-white p-4 rounded-lg shadow-sm">
-                <p class="text-5xl text-deep font-semibold">12</p>
+                <p id="hired-cont" class="text-5xl text-deep font-semibold">14</p>
                 <p class="text-lg mt-3 text-deep">Hired</p>
             </div>
         </section>
@@ -98,7 +98,7 @@
             </div>
         </section>
     </main>
-
+    <script type="module" src="../../js/dashboard.js"></script>
 </body>
 
 </html>
