@@ -1,19 +1,36 @@
-const API = "https://localhost:3000/"
+const API = "http://localhost:3000"
 
 
-export async function getUsers() {
+export async function getCompanies() {
     try {
-        const res = await fetch(`${API}/users`);
+        const res = await fetch(`${API}/companies`);
         return await res.json();
     } catch (e){
         console.log(e)
         return e
     }
 }
-export async function createUsers(user) {
-    const res = await fetch(API, {
+export async function getCandidates() {
+    try {
+        const res = await fetch(`${API}/candidates`);
+        return await res.json();
+    } catch (e){
+        console.log(e)
+        return e
+    }
+}
+export async function createCompany(user) {
+    const res = await fetch(`${API}/companies`, {
         method: "POST",
-        headers: {"content-Type": "application/json"},
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(user)
+    });
+    return await res.json();
+}
+export async function createCandidate(user) {
+    const res = await fetch(`${API}/candidates`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(user)
     });
     return await res.json();

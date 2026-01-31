@@ -18,7 +18,7 @@
                         <span class="text-[0.7rem] font-semibold w-auto text-[#006e92]">Looking for work</span>
                     </div>
                     <div id="company" class="role-card border text-center w-50 border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 cursor-pointer">
-                       
+                    
                         <p class="font-semibold text-[0.9rem]">Company</p>
                         <div class="w-auto">
                             <span class="text-[0.7rem] text-[#006e92] font-semibold">Hiring Talent</span>
@@ -35,15 +35,28 @@
                         placeholder="name@example.com"
                         class="w-full p-2 rounded-lg h-10"
                     >
+                    <label class="labels mb-0 mt-4" for="email">Password</label>
+                    <input required
+                        id="password"
+                        type="password"
+                        name="password"
+                        placeholder="******"
+                        class="w-full p-2 rounded-lg h-10"
+                    >
                     <p id="errorMsg" class="text-red-500 text-sm"></p>
-                    <button type="submit" class="font-medium w-full mt-[2rem] text-white bg-[#00a8e8ff] mb-[0.5rem] py-2 rounded hover:bg-[#0af00a] transition ">
+                    <button type="submit" class="font-medium w-full mt-[2rem] text-white bg-[#00a8e8ff] mb-[0.5rem] py-2 rounded cursor-pointer ">
                         Sign In
                     </button>
                 </form>
-            
+                <p class="text-sm text-center mt-3">
+                    Don’t have an account?
+                    <a href="./register.html" class="text-blue-500 underline">
+                        Register here
+                    </a>
+                </p>
             </div>
 
     </section>
-    <script src="../../js/login.js"></script>
+    <script type="module" src="../../js/login.js"></script>
 </body>
 </html>

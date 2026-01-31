@@ -37,6 +37,11 @@
         <form id="register-form" class="p-3 space-y-4">
             <input type="hidden" id="role" name="role">
 
+            <label for="email">Name</label>
+            <input required id="name" type="text" name="name"
+                placeholder="name"
+                class="w-full p-2 rounded-lg h-10">
+
             <label for="email">Email Address</label>
             <input required id="email" type="email" name="email"
                 placeholder="name@example.com"
@@ -55,13 +60,13 @@
             <p id="errorMsg" class="text-red-500 text-sm"></p>
 
             <button type="submit"
-                class="cursor-pointer font-medium w-full mt-4 text-white bg-[#00a8e8ff] py-2 rounded hover:bg-#0af00a] transition">
+                class="cursor-pointer font-medium w-full mt-4 text-white bg-[#00a8e8ff] py-2 rounded transition">
                 Register
             </button>
         </form>
     </div>
 </section>
 
-<script src="../../js/register.js"></script>
+<script type="module" src="../../js/register.js"></script>
 </body>
 </html>
