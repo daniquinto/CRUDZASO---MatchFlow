@@ -32,15 +32,13 @@
 
         <nav class="flex flex-wrap items-center gap-4 text-sm text-deep sm:gap-12" aria-label="Primary navigation">
           <a class="rounded p-2 hover:bg-sky/10 hover:text-sky" href="profile.html">Company Profile</a>
-
-          <a class="flex flex-wrap items-center gap-4 text-sm text-deep sm:gap-12" aria-label="Primary navigation">
+          <span class="flex flex-wrap items-center gap-4 text-sm text-deep sm:gap-12" aria-label="Primary navigation">
             Dashboard
-          </a>
-
+          </span>
           <a class="rounded p-2 hover:bg-sky/10 hover:text-sky" href="#">Find Candidates</a>
           <a
             class="rounded border-b-2 border-sky p-2 font-medium hover:bg-sky/10 hover:text-sky"
-            href="dashboard.html"
+            href="company-job-offers.html"
             aria-current="page"
           >Job Offers</a>
         </nav>
@@ -140,16 +138,16 @@
                 <h2 id="filters-title" class="text-sm font-extrabold text-deep">Filters</h2>
                 <p class="mt-1 text-xs text-ink/60">Search by title.</p>
               </header>
-                <div>
-                  <label for="searchInput" class="text-[11px] font-semibold text-ink/55">Search</label>
-                  <input
-                    id="searchInput"
-                    name="q"
-                    type="text"
-                    placeholder="e.g., Frontend, Data, QA…"
-                    class="mt-1 w-full rounded-xl border border-ink/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
-                  />
-                </div>
+              <div>
+                <label for="searchInput" class="text-[11px] font-semibold text-ink/55">Search</label>
+                <input
+                  id="searchInput"
+                  name="q"
+                  type="text"
+                  placeholder="e.g., Frontend, Data, QA…"
+                  class="mt-1 w-full rounded-xl border border-ink/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
+                />
+              </div>
             </div>
           </section>
         </div>
@@ -214,7 +212,7 @@
             <form id="offerForm" class="space-y-5" aria-label="Create or edit job offer">
               <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div class="sm:col-span-2">
-                  <label for="fTitle" class="text-[11px] font-semibold text-ink/55">Title</label>
+                  <label for="fTitle" class="text-[11px] font-semibold text-ink/55">Title *</label>
                   <input
                     id="fTitle"
                     name="title"
@@ -225,61 +223,52 @@
                 </div>
 
                 <div>
-                  <label for="fLocation" class="text-[11px] font-semibold text-ink/55">Location</label>
+                  <label for="fLocation" class="text-[11px] font-semibold text-ink/55">Location *</label>
                   <input
                     id="fLocation"
                     name="location"
                     type="text"
-                    placeholder="e.g., Remote / Lima"
+                    placeholder="e.g., Remote / Medellín"
                     class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
                   />
                 </div>
 
                 <div>
-                  <label for="fType" class="text-[11px] font-semibold text-ink/55">Employment Type</label>
+                  <label for="fEmploymentType" class="text-[11px] font-semibold text-ink/55">Employment Type *</label>
                   <select
-                    id="fType"
-                    name="type"
+                    id="fEmploymentType"
+                    name="employmentType"
                     class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
                   >
                     <option value="">—</option>
-                    <option value="full-time">Full-time</option>
-                    <option value="part-time">Part-time</option>
-                    <option value="contract">Contract</option>
-                    <option value="internship">Internship</option>
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                    <option>Contract</option>
+                    <option>Internship</option>
                   </select>
                 </div>
 
                 <div>
-                  <label for="fSalary" class="text-[11px] font-semibold text-ink/55">Salary (text)</label>
-                  <input
-                    id="fSalary"
-                    name="salary"
-                    type="text"
-                    placeholder="e.g., $2k–$3k"
-                    class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
-                  />
-                </div>
-
-                <div>
-                  <label for="fPublished" class="text-[11px] font-semibold text-ink/55">Status</label>
+                  <label for="fStatus" class="text-[11px] font-semibold text-ink/55">Status *</label>
                   <select
-                    id="fPublished"
-                    name="published"
+                    id="fStatus"
+                    name="status"
                     class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
                   >
-                    <option value="false">Draft</option>
-                    <option value="true">Published</option>
+                    <option value="">—</option>
+                    <option value="open">open</option>
+                    <option value="closed">closed</option>
+                    <option value="draft">draft</option>
                   </select>
                 </div>
 
                 <div class="sm:col-span-2">
-                  <label for="fSummary" class="text-[11px] font-semibold text-ink/55">Summary</label>
+                  <label for="fDescription" class="text-[11px] font-semibold text-ink/55">Description *</label>
                   <textarea
-                    id="fSummary"
-                    name="summary"
+                    id="fDescription"
+                    name="description"
                     rows="3"
-                    placeholder="Short description for candidates"
+                    placeholder="e.g., React developer with experience in SPAs"
                     class="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky"
                   ></textarea>
                 </div>
@@ -309,5 +298,332 @@
         </article>
       </div>
     </section>
+
+    <script>
+      // ---------- CONFIG ----------
+      const API_BASE = "http://localhost:3000";
+      const companyId = Number(localStorage.getItem("companyId") || 1);
+
+      // ---------- DOM ----------
+      const modalOverlay = document.getElementById("modalOverlay");
+      const newOfferBtn = document.getElementById("newOfferBtn");
+      const closeModalBtn = document.getElementById("closeModalBtn");
+
+      const modalTitle = document.getElementById("modalTitle");
+      const modalSaveBtn = document.getElementById("modalSaveBtn");
+      const modalDeleteBtn = document.getElementById("modalDeleteBtn");
+      const modalError = document.getElementById("modalError");
+      const offerForm = document.getElementById("offerForm");
+
+      const companyNameEl = document.getElementById("companyName");
+      const companyTaglineEl = document.getElementById("companyTagline");
+      const metricOffersEl = document.getElementById("metricOffers");
+      const metricReservationsEl = document.getElementById("metricReservations");
+
+      const offersListEl = document.getElementById("offersList");
+      const emptyStateEl = document.getElementById("emptyState");
+      const countBadgeEl = document.getElementById("countBadge");
+      const searchInputEl = document.getElementById("searchInput");
+
+      // form inputs
+      const fTitle = document.getElementById("fTitle");
+      const fLocation = document.getElementById("fLocation");
+      const fEmploymentType = document.getElementById("fEmploymentType");
+      const fStatus = document.getElementById("fStatus");
+      const fDescription = document.getElementById("fDescription");
+
+      // ---------- STATE ----------
+      let offers = [];
+      let matches = [];
+      let reservations = [];
+      let editingId = null;
+
+      // ---------- MODAL ----------
+      function openModal() {
+        modalOverlay.classList.remove("hidden");
+        document.body.classList.add("overflow-hidden");
+      }
+
+      function closeModal() {
+        modalOverlay.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+        modalError.classList.add("hidden");
+        modalError.textContent = "";
+        editingId = null;
+      }
+
+      function showError(msg) {
+        modalError.textContent = msg;
+        modalError.classList.remove("hidden");
+      }
+
+      function todayISODate() {
+        // JSON example uses YYYY-MM-DD
+        const d = new Date();
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, "0");
+        const dd = String(d.getDate()).padStart(2, "0");
+        return `${yyyy}-${mm}-${dd}`;
+      }
+
+      function getOfferPayloadFromForm() {
+        return {
+          companyId,
+          title: fTitle.value.trim(),
+          description: fDescription.value.trim(),
+          location: fLocation.value.trim(),
+          employmentType: fEmploymentType.value,
+          status: fStatus.value,
+          createdAt: todayISODate(),
+        };
+      }
+
+      function setFormFromOffer(offer) {
+        fTitle.value = offer.title || "";
+        fDescription.value = offer.description || "";
+        fLocation.value = offer.location || "";
+        fEmploymentType.value = offer.employmentType || "";
+        fStatus.value = offer.status || "";
+      }
+
+      // ---------- DATA FETCH ----------
+      async function fetchJSON(path) {
+        const res = await fetch(`${API_BASE}${path}`);
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text || `Request failed: ${res.status}`);
+        }
+        return res.json();
+      }
+
+      async function loadAll() {
+        // company
+        const company = await fetchJSON(`/companies/${companyId}`);
+        companyNameEl.textContent = company.name ?? "—";
+        companyTaglineEl.textContent = company.description ?? company.industry ?? "—";
+
+        // offers, matches, reservations
+        [offers, matches, reservations] = await Promise.all([
+          fetchJSON(`/jobOffers?companyId=${companyId}&_sort=createdAt&_order=desc`),
+          fetchJSON(`/matches?companyId=${companyId}`),
+          fetchJSON(`/reservations?companyId=${companyId}`),
+        ]);
+
+        renderMetrics();
+        renderOffers();
+      }
+
+      function renderMetrics() {
+        metricOffersEl.textContent = String(offers.length);
+
+        const activeReservations = reservations.filter((r) => r.active === true);
+        metricReservationsEl.textContent = String(activeReservations.length);
+      }
+
+      // ---------- DERIVED COUNTS ----------
+      function countsForOffer(offerId) {
+        const offerMatches = matches.filter((m) => m.jobOfferId === offerId);
+        const byStatus = offerMatches.reduce((acc, m) => {
+          acc[m.status] = (acc[m.status] || 0) + 1;
+          return acc;
+        }, {});
+        const activeRes = reservations.filter((r) => r.jobOfferId === offerId && r.active === true).length;
+
+        return {
+          pending: byStatus.pending || 0,
+          hired: byStatus.hired || 0,
+          rejected: byStatus.rejected || 0,
+          totalMatches: offerMatches.length,
+          activeReservations: activeRes,
+        };
+      }
+
+      // ---------- RENDER ----------
+      function renderOffers() {
+        const q = (searchInputEl.value || "").trim().toLowerCase();
+        const filtered = offers.filter((o) => (o.title || "").toLowerCase().includes(q));
+
+        countBadgeEl.textContent = `${filtered.length} offer${filtered.length === 1 ? "" : "s"}`;
+
+        offersListEl.innerHTML = "";
+
+        if (filtered.length === 0) {
+          emptyStateEl.classList.remove("hidden");
+          return;
+        }
+        emptyStateEl.classList.add("hidden");
+
+        filtered.forEach((offer) => {
+          const c = countsForOffer(offer.id);
+
+          const statusPill =
+            offer.status === "open"
+              ? "bg-green-100 text-green-800"
+              : offer.status === "closed"
+              ? "bg-gray-200 text-gray-800"
+              : "bg-yellow-100 text-yellow-800";
+
+          const row = document.createElement("div");
+          row.className = "px-6 py-5";
+          row.innerHTML = `
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="truncate text-sm font-extrabold text-deep">${escapeHTML(offer.title || "Untitled")}</h3>
+                  <span class="rounded-full px-2 py-1 text-[11px] font-extrabold ${statusPill}">
+                    ${escapeHTML(offer.status || "—")}
+                  </span>
+                </div>
+
+                <p class="mt-1 text-xs text-ink/60">
+                  ${escapeHTML(offer.location || "—")} • ${escapeHTML(offer.employmentType || "—")} • Created: ${escapeHTML(offer.createdAt || "—")}
+                </p>
+
+                <p class="mt-2 text-xs text-ink/80">
+                  ${escapeHTML(offer.description || "")}
+                </p>
+
+                <dl class="mt-3 grid grid-cols-2 gap-2 text-xs sm:grid-cols-4">
+                  <div class="rounded-xl bg-ink/5 p-3">
+                    <dt class="font-semibold text-ink/60">Matches</dt>
+                    <dd class="mt-1 text-sm font-extrabold text-deep">${c.totalMatches}</dd>
+                  </div>
+                  <div class="rounded-xl bg-ink/5 p-3">
+                    <dt class="font-semibold text-ink/60">Pending</dt>
+                    <dd class="mt-1 text-sm font-extrabold text-deep">${c.pending}</dd>
+                  </div>
+                  <div class="rounded-xl bg-ink/5 p-3">
+                    <dt class="font-semibold text-ink/60">Hired</dt>
+                    <dd class="mt-1 text-sm font-extrabold text-deep">${c.hired}</dd>
+                  </div>
+                  <div class="rounded-xl bg-ink/5 p-3">
+                    <dt class="font-semibold text-ink/60">Active Res.</dt>
+                    <dd class="mt-1 text-sm font-extrabold text-deep">${c.activeReservations}</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="flex shrink-0 items-center gap-2">
+                <button
+                  class="editBtn rounded-xl border border-ink/15 bg-white px-3 py-2 text-xs font-extrabold hover:bg-ink/5 focus:outline-none focus:ring-2 focus:ring-sky"
+                  type="button"
+                  data-id="${offer.id}"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
+          `;
+
+          offersListEl.appendChild(row);
+        });
+
+        // hook edit buttons
+        offersListEl.querySelectorAll(".editBtn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const id = Number(btn.getAttribute("data-id"));
+            const offer = offers.find((o) => o.id === id);
+            if (!offer) return;
+
+            editingId = id;
+            modalTitle.textContent = "Edit Job Offer";
+            modalDeleteBtn.classList.remove("hidden");
+            offerForm.reset();
+            setFormFromOffer(offer);
+            openModal();
+          });
+        });
+      }
+
+      function escapeHTML(str) {
+        return String(str)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      // ---------- EVENTS ----------
+      newOfferBtn.addEventListener("click", () => {
+        editingId = null;
+        modalTitle.textContent = "New Job Offer";
+        modalDeleteBtn.classList.add("hidden");
+        offerForm.reset();
+        // sensible defaults
+        fStatus.value = "open";
+        fEmploymentType.value = "Full-time";
+        openModal();
+      });
+
+      closeModalBtn.addEventListener("click", closeModal);
+
+      searchInputEl.addEventListener("input", renderOffers);
+
+      modalSaveBtn.addEventListener("click", async () => {
+        modalError.classList.add("hidden");
+        modalError.textContent = "";
+
+        const payload = getOfferPayloadFromForm();
+
+        // minimal validation
+        if (!payload.title) return showError("Title is required.");
+        if (!payload.location) return showError("Location is required.");
+        if (!payload.employmentType) return showError("Employment Type is required.");
+        if (!payload.status) return showError("Status is required.");
+        if (!payload.description) return showError("Description is required.");
+
+        try {
+          const url = editingId ? `${API_BASE}/jobOffers/${editingId}` : `${API_BASE}/jobOffers`;
+          const method = editingId ? "PATCH" : "POST";
+
+          const res = await fetch(url, {
+            method,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || `Request failed with status ${res.status}`);
+          }
+
+          closeModal();
+          await loadAll();
+        } catch (err) {
+          console.error(err);
+          showError("Could not save offer. Is JSON Server running on port 3001?");
+        }
+      });
+
+      modalDeleteBtn.addEventListener("click", async () => {
+        if (!editingId) return;
+
+        try {
+          const res = await fetch(`${API_BASE}/jobOffers/${editingId}`, { method: "DELETE" });
+          if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || `Delete failed with status ${res.status}`);
+          }
+
+          closeModal();
+          await loadAll();
+        } catch (err) {
+          console.error(err);
+          showError("Could not delete offer. Is JSON Server running on port 3001?");
+        }
+      });
+
+      // ---------- INIT ----------
+      loadAll().catch((err) => {
+        console.error(err);
+        // minimal UI fallback
+        companyNameEl.textContent = "—";
+        companyTaglineEl.textContent = "Could not load data (is JSON Server running?)";
+        metricOffersEl.textContent = "—";
+        metricReservationsEl.textContent = "—";
+        countBadgeEl.textContent = "—";
+      });
+    </script>
   </body>
 </html>
