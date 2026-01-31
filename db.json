@@ -2,7 +2,10 @@
     "companies": [
         {
             "id": 1,
+            "role": "company",
             "name": "Crudzaso Tech",
+            "email": "example@gmail.com",
+            "password": "123456",
             "industry": "Technology",
             "size": "51-200",
             "location": "Medellín, Colombia",
@@ -24,8 +27,11 @@
     "candidates": [
         {
             "id": 1,
-            "fullName": "Ana Gómez",
-            "role": "Frontend Developer",
+            "role": "candidate",
+            "name": "Ana Gómez",
+            "email": "example@gmail.com",
+            "password": "123456",
+            "title": "Frontend Developer",
             "skills": [
                 "React",
                 "CSS",
