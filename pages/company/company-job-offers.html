@@ -358,7 +358,7 @@
       }
 
       function todayISODate() {
-        // JSON example uses YYYY-MM-DD
+      
         const d = new Date();
         const yyyy = d.getFullYear();
         const mm = String(d.getMonth() + 1).padStart(2, "0");
@@ -617,7 +617,7 @@
       // ---------- INIT ----------
       loadAll().catch((err) => {
         console.error(err);
-        // minimal UI fallback
+        
         companyNameEl.textContent = "—";
         companyTaglineEl.textContent = "Could not load data (is JSON Server running?)";
         metricOffersEl.textContent = "—";
