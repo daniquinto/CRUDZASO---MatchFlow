@@ -30,6 +30,7 @@ MPA
 
 ### companies
 Stores company users.
+
 ```json
 {
   "id": 1,

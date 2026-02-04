@@ -1,72 +1,80 @@
 import * as cru from "./storage.js";
 
-export async function registerUser(role, name, email, password, confirm) {
-    if(!role) {
-        throw new Error("please select a role");
-    };
-    if(password != confirm){
-        throw new Error("passwords do not match");
-    };
-    
-    if (role === "company"){
-        const companies = await cru.getCompanies();
-        const exists = companies.find(c => c.email === email);
-        if (exists) throw new Error("Company email already registered");
-        const newCompany = {
-            role: "company",
-            name,
-            email,
-            password,
-            industry: "",
-            size: "",
-            location: "",
-            description: "",
-        };
-        return await cru.createCompany(newCompany);
-    }
-    if (role === "candidate"){
-        const candidates = await cru.getCandidates();
-        const exists = candidates.find(c => c.email === email);
-        if (exists) throw new Error("Company email already registered");
-        const newCandidate = {
-            role: "candidate",
-            name,
-            email,
-            password,
-            title: "",
-            skills: [],
-            openToWork: true,
-            location: "",
-            experienceYears: 0
-        };
-        return await cru.createCandidate(newCandidate);
-    }
-    throw new Error("Invalid role");
+export function normalizeEmail(email) {
+  return String(email || "").trim().toLowerCase();
 }
 
-//login User
-import { getCompanies, getCandidates } from "./storage.js";
+export async function registerUser(role, name, email, password, confirm) {
+  if (!role) {
+    throw new Error("Please select a role");
+  }
+
+  if (password !== confirm) {
+    throw new Error("Passwords do not match");
+  }
+
+  const safeEmail = normalizeEmail(email);
+
+  const existing = await cru.getUsersByEmail(safeEmail);
+  const emailTaken = existing.length > 0;
+
+  if (emailTaken) {
+    throw new Error("Email already registered");
+  }
+
+  if (role === "company") {
+    const user = await cru.createUser({
+      role: "company",
+      name: String(name || "").trim(),
+      email: safeEmail,
+      password
+    });
+
+    return await cru.createCompany({
+      userId: user.id,
+      industry: "",
+      size: "",
+      location: "",
+      description: ""
+    });
+  }
+
+  if (role === "candidate") {
+    const user = await cru.createUser({
+      role: "candidate",
+      name: String(name || "").trim(),
+      email: safeEmail,
+      password
+    });
+
+    return await cru.createCandidate({
+      userId: user.id,
+      title: "",
+      skills: [],
+      openToWork: true,
+      location: "",
+      experienceYears: 0
+    });
+  }
+
+  throw new Error("Invalid role");
+}
 
 export async function loginUser(email, password) {
-    const companies = await getCompanies();
-    const candidates = await getCandidates();
+  const safeEmail = normalizeEmail(email);
 
-    const company = companies.find(
-        c => c.email === email && c.password === password
-    );
+  const user = await cru.getUserByEmailAndPassword(safeEmail, password);
+  if (!user) throw new Error("Invalid email or password");
 
-    if (company) {
-        return { ...company, userType: "company" };
-    }
+  if (user.role === "company") {
+    const profile = await cru.getCompanyByUserId(user.id);
+    return { ...user, ...(profile || {}), userType: "company" };
+  }
 
-    const candidate = candidates.find(
-        c => c.email === email && c.password === password
-    );
+  if (user.role === "candidate") {
+    const profile = await cru.getCandidateByUserId(user.id);
+    return { ...user, ...(profile || {}), userType: "candidate" };
+  }
 
-    if (candidate) {
-        return { ...candidate, userType: "candidate" };
-    }
-
-    throw new Error("Invalid email or password");
+  throw new Error("Invalid role");
 }
-

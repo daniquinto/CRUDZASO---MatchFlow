@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "role": "company",
       "name": "Crudzaso Tech",
       "email": "company@gmail.com",
@@ -17,7 +17,7 @@
   ],
   "companies": [
     {
-      "id": "1",
+      "id": 1,
       "userId": 1,
       "industry": "Technology",
       "size": "51-200",
