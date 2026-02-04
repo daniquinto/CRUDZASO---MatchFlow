@@ -26,7 +26,7 @@
       "industry": "Technology",
       "size": "12",
       "location": "Medellín, Colombia",
-      "description": "We build fast hiring experiences"
+      "description": "We build fast hiring experiences. Come join us!"
     }
   ],
   "candidates": [
@@ -53,7 +53,17 @@
       "location": "Remote",
       "employmentType": "Full-time",
       "status": "open",
-      "createdAt": "2026-01-15"
+      "createdAt": "2026-02-04"
+    },
+    {
+      "id": "b889",
+      "companyId": 1,
+      "title": "hola",
+      "description": "hola",
+      "location": "hola",
+      "employmentType": "Full-time",
+      "status": "open",
+      "createdAt": "2026-02-04"
     }
   ],
   "matches": [
