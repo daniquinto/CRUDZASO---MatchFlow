@@ -1,14 +1,14 @@
-const currentSession = JSON.parse(localStorage.getItem("session"));
-
-const companyId = currentSession.userId
+const currentSession = JSON.parse(localStorage.getItem("session")) || null;
 
 if (!currentSession) {
     window.location.href = "../../index.html";
 }
 
-if (currentSession.role === "user") {
+if (currentSession.role !== "company") {
     window.location.href = "../user/candidate-dashboard.html"
 }
+
+const companyId = currentSession.userId
 
 const logoutBtn = document.getElementById("logout-btn")
 const createJobOfferBtn = document.getElementById("create-job-offer")
