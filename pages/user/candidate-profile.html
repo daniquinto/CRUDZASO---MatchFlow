@@ -6,64 +6,95 @@
     <title>MatchFlow | Mi Perfil</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Main background color for the page */
         body { background-color: #f4f7f9; }
+        /* Dark blue header background */
         .header-bg { background-color: #003366; height: 120px; }
+        /* Soft shadow for card elements */
         .card-shadow { box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 8px; }
     </style>
 </head>
 <body>
+    <!-- Navigation bar -->
     <nav class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
         <div class="flex items-center gap-10">
+            <!-- Logo/brand name -->
             <h1 class="text-xl font-bold text-[#003366]">MatchFlow</h1>
+            <!-- Navigation links (hidden on mobile, visible on medium screens and up) -->
             <div class="hidden md:flex gap-8 text-sm font-medium text-gray-500">
                 <a href="candidate-dashboard.html">Dashboard</a>
                 <a href="candidate-search.html">Find jobs</a>
+                <!-- Current active page with bottom border -->
                 <a href="candidate-profile.html" class="border-b-2 border-cyan-500 text-slate-900 font-bold">My Profile</a>
             </div>
         </div>
+        <!-- Logout button -->
         <button class="border border-gray-300 px-4 py-1.5 rounded text-sm font-semibold">Logout</button>
     </nav>
 
+    <!-- Header background banner -->
     <div class="header-bg w-full"></div>
 
+    <!-- Main content container -->
     <main class="max-w-5xl mx-auto px-8 -mt-16">
+        <!-- Profile card (overlapping the header with negative margin) -->
         <div class="bg-white card-shadow p-8 mb-6 flex flex-col md:flex-row gap-6 items-center">
+            <!-- Profile photo placeholder -->
             <div class="w-32 h-32 bg-gray-200 rounded flex items-center justify-center text-gray-400 font-bold">PHOTO</div>
+            <!-- Profile information -->
             <div class="flex-1 text-center md:text-left">
+                <!-- User name -->
                 <h2 class="text-2xl font-bold text-[#003366]">Mateo García</h2>
+                <!-- Job title -->
                 <p class="text-gray-500 italic">Fullstack Developer</p>
+                <!-- Location and experience -->
                 <p class="text-xs text-gray-400 mt-1">Medellín, Colombia • 5 years experience</p>
+                <!-- Action buttons -->
                 <div class="mt-4 flex gap-2 justify-center md:justify-start">
+                    <!-- Primary button to edit profile -->
                     <button class="bg-cyan-500 text-white px-6 py-2 rounded text-sm font-bold shadow-sm hover:bg-cyan-600 transition-all">Edit Profile</button>
+                    <!-- Secondary button to upload CV -->
                     <button class="border border-gray-200 px-6 py-2 rounded text-sm font-bold text-gray-600 hover:bg-gray-50">Upload CV</button>
                 </div>
             </div>
         </div>
 
+        <!-- Availability status card with cyan left border -->
         <div class="bg-white card-shadow p-6 mb-6 flex justify-between items-center border-l-4 border-cyan-500">
             <div>
+                <!-- Section title -->
                 <h3 class="font-bold text-[#003366] text-lg">Estado de Visibilidad</h3>
+                <!-- Description text -->
                 <p class="text-sm text-gray-500">Activa "Open to Work" para que las empresas puedan encontrarte.</p>
             </div>
             
+            <!-- Toggle switch section -->
             <div class="flex items-center gap-3">
+                <!-- Status label that changes based on toggle state -->
                 <span id="status-label" class="text-xs font-black uppercase tracking-tighter text-gray-400">Inactivo</span>
+                <!-- Custom toggle switch -->
                 <label class="relative inline-flex items-center cursor-pointer">
+                    <!-- Hidden checkbox that controls the toggle -->
                     <input type="checkbox" id="open-to-work-switch" class="sr-only peer" onchange="updateAvailability()">
+                    <!-- Visual toggle element (uses Tailwind peer classes for interaction) -->
                     <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-cyan-500"></div>
                 </label>
             </div>
         </div>
 
+        <!-- About Me section -->
         <div class="bg-white card-shadow p-8 mb-6">
             <h3 class="font-bold text-[#003366] mb-4">About Me</h3>
+            <!-- Lorem ipsum placeholder text -->
             <p class="text-sm text-gray-600 leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
         </div>
 
+        <!-- Technical Skills section -->
         <div class="bg-white card-shadow p-8">
             <h3 class="font-bold text-[#003366] mb-4">Technical Skills</h3>
+            <!-- Skills displayed as badge pills -->
             <div class="flex flex-wrap gap-2">
                 <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs font-medium border border-gray-200">JavaScript</span>
                 <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs font-medium border border-gray-200">React.js</span>
@@ -75,16 +106,20 @@
     </main>
 
     <script>
-        // Función para actualizar el estado visual
+        // Function to update the availability status when toggle is clicked
         function updateAvailability() {
+            // Get references to the checkbox and status label
             const checkbox = document.getElementById('open-to-work-switch');
             const label = document.getElementById('status-label');
+            // Check if the toggle is ON or OFF
             const isOpen = checkbox.checked;
 
+            // Update the label text based on the toggle state
             label.innerText = isOpen ? "Open to Work" : "Inactivo";
+            // Update the label styling based on the toggle state
             label.className = isOpen ? "text-cyan-600 font-bold" : "text-gray-400 font-bold";
 
-            
+            // Log the change to console (for debugging)
             console.log("Visibilidad actualizada:", isOpen);
         }
     </script>

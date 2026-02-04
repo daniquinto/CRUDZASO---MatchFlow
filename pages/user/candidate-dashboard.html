@@ -4,51 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MatchFlow | Dashboard Candidato</title>
+    <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Main background and text color */
         body { background-color: #f4f7f9; color: #334155; }
+        /* Active navigation link style */
         .nav-active { border-bottom: 2px solid #06b6d4; color: #0f172a; }
+        /* Card shadow utility class */
         .card-shadow { box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 8px; }
     </style>
 </head>
 <body>
+    <!-- Navigation bar - sticky at the top -->
     <nav class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center sticky top-0 z-50">
         <div class="flex items-center gap-10">
+            <!-- Logo/brand name -->
             <h1 class="text-xl font-bold text-[#003366]">MatchFlow</h1>
+            <!-- Navigation links (hidden on mobile) -->
             <div class="hidden md:flex gap-8 text-sm font-medium text-gray-500">
+                <!-- Active page with bottom border -->
                 <a href="candidate-dashboard.html" class="nav-active pb-1">Dashboard</a>
+                <!-- Other navigation links with hover effect -->
                 <a href="candidate-search.html" class="hover:text-cyan-600 transition-colors">Find jobs</a>
                 <a href="candidate-profile.html" class="hover:text-cyan-600 transition-colors">My Profile</a>
             </div>
         </div>
+        <!-- Logout button -->
         <button class="border border-gray-300 px-4 py-1.5 rounded text-sm font-semibold text-gray-700 hover:bg-gray-50">Logout</button>
     </nav>
 
+    <!-- Main content area -->
     <main class="max-w-7xl mx-auto p-8">
+        <!-- Page header -->
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-2xl font-bold text-[#003366]">Candidate Dashboard</h2>
         </div>
 
+        <!-- Statistics cards grid - 4 cards in a row on desktop, stacked on mobile -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <!-- Active Applications card -->
             <div class="bg-white p-6 card-shadow flex items-center justify-between">
                 <div>
+                    <!-- Number display -->
                     <span class="text-4xl font-bold text-[#003366]">3</span>
+                    <!-- Label -->
                     <p class="text-gray-500 text-sm">Active Applications</p>
                 </div>
             </div>
+            <!-- Profile Views card -->
             <div class="bg-white p-6 card-shadow flex items-center justify-between">
                 <div>
                     <span class="text-4xl font-bold text-[#003366]">12</span>
                     <p class="text-gray-500 text-sm">Profile Views</p>
                 </div>
             </div>
+            <!-- Invitations card -->
             <div class="bg-white p-6 card-shadow flex items-center justify-between">
                 <div>
                     <span class="text-4xl font-bold text-[#003366]">5</span>
                     <p class="text-gray-500 text-sm">Invitations</p>
                 </div>
             </div>
+            <!-- New Messages card -->
             <div class="bg-white p-6 card-shadow flex items-center justify-between">
                 <div>
                     <span class="text-4xl font-bold text-[#003366]">2</span>
@@ -57,23 +77,32 @@
             </div>
         </div>
 
+        <!-- Recent Job Matches section -->
         <div class="bg-white card-shadow overflow-hidden">
+            <!-- Section header -->
             <div class="px-6 py-4 border-b border-gray-100">
                 <h3 class="font-bold text-[#003366]">Recent Job Matches</h3>
             </div>
+            <!-- Job list with dividers between items -->
             <div class="divide-y divide-gray-100">
+                <!-- First job match - Pending status -->
                 <div class="px-6 py-4 flex justify-between items-center">
                     <div>
+                        <!-- Job title -->
                         <p class="font-semibold text-blue-600">Senior Fullstack Developer</p>
+                        <!-- Company name and status text -->
                         <p class="text-xs text-gray-400">TechCorp - Pending</p>
                     </div>
+                    <!-- Status badge - gray for pending -->
                     <span class="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-[10px] font-bold">Pending</span>
                 </div>
+                <!-- Second job match - Contacted status -->
                 <div class="px-6 py-4 flex justify-between items-center">
                     <div>
                         <p class="font-semibold text-blue-600">React Specialist</p>
                         <p class="text-xs text-gray-400">Design Studio - Contacted</p>
                     </div>
+                    <!-- Status badge - cyan for contacted -->
                     <span class="bg-cyan-100 text-cyan-600 px-3 py-1 rounded-full text-[10px] font-bold">Contacted</span>
                 </div>
             </div>
