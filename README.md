@@ -1,14 +1,24 @@
-# Restor App – Hiring Platform
 
-## Project Description
-Restor App is a recruitment platform where **companies** can publish job offers and **candidates** can register and be matched with them.  
-The project uses a fake REST API built with **json-server**.
+# MatchFlow – Hiring Platform (MPA)
 
-MPA
+MatchFlow is a multi-page recruitment platform that connects companies and candidates through a simple and intuitive hiring flow. Companies can publish job offers, while candidates create professional profiles and apply to open positions.  
+
+The application uses a **fake REST API powered by JSON Server** and stores authentication sessions in **LocalStorage**.
 
 ---
 
-## Group Members
+## Project Architecture
+
+The system follows a **users + role profiles** architecture:
+
+- **users** → Authentication & shared identity  
+- **companies** → Company profile data  
+- **candidates** → Candidate profile data  
+
+---
+
+## Team Members
+
 - Daniela Quinto  
 - Ulith  
 - Faiber Camacho  
@@ -18,6 +28,7 @@ MPA
 ---
 
 ## Technologies
+
 - HTML  
 - Tailwind CSS  
 - JavaScript (Vanilla)  
@@ -26,41 +37,85 @@ MPA
 
 ---
 
+## Project Structure
+
+```
+matchFlow/
+│
+├── index.html
+├── db.json
+├── css/
+│   └── login.css
+├── js/
+│   ├── auth.js
+│   ├── dashboard.js
+│   ├── guard.js
+│   ├── login.js
+│   ├── profile.js
+│   ├── register.js
+│   └── storage.js
+├── pages/
+│   ├── company/
+│   │   ├── dashboard.html
+│   │   ├── profile.html
+│   │   └── company-job-offers.html
+│   ├── user/
+│   │   ├── candidate-dashboard.html
+│   │   ├── candidate-profile.html
+│   │   └── candidate-job-offers.html
+│   └── Login-register/
+│       └── register.html
+```
+
+---
+
 ## Database Structure (`db.json`)
 
-### companies
-Stores company users.
+### users
+Stores authentication credentials and shared identity.
 
 ```json
 {
   "id": 1,
   "role": "company",
   "name": "Crudzaso Tech",
-  "email": "example@gmail.com",
-  "password": "123456",
+  "email": "company@gmail.com",
+  "password": "123456"
+}
+```
+
+### companies
+Linked to users by `userId`.
+
+```json
+{
+  "id": 1,
+  "userId": 1,
   "industry": "Technology",
   "size": "51-200",
   "location": "Medellín, Colombia",
   "description": "We build fast hiring experiences"
 }
+```
 
-companies
-Stores candidate users.
+### candidates
+Linked to users by `userId`.
 
+```json
 {
   "id": 1,
-  "role": "candidate",
-  "name": "Ana Gómez",
-  "email": "example@gmail.com",
-  "password": "123456",
+  "userId": 2,
   "title": "Frontend Developer",
   "skills": ["React", "CSS", "JavaScript"],
   "openToWork": true,
   "location": "Bogotá",
   "experienceYears": 3
 }
-jobOffers
-Stores job offers created by companies
+```
+
+### jobOffers
+
+```json
 {
   "id": 1,
   "companyId": 1,
@@ -71,8 +126,11 @@ Stores job offers created by companies
   "status": "open",
   "createdAt": "2026-01-15"
 }
-matches
-Represents a match between company and candidate.
+```
+
+### matches
+
+```json
 {
   "id": 1,
   "companyId": 1,
@@ -82,8 +140,11 @@ Represents a match between company and candidate.
   "createdAt": "2026-01-20",
   "contactUnlocked": false
 }
-reservations
-Temporary reservation between company and candidate.
+```
+
+### reservations
+
+```json
 {
   "id": 1,
   "candidateId": 1,
@@ -93,32 +154,56 @@ Temporary reservation between company and candidate.
   "reservedAt": "2026-01-20"
 }
 ```
-## System Features
-- Register as company or candidate  
-- Login with role validation  
-- Session stored in LocalStorage  
-- Role-based redirection  
 
 ---
 
-## How to Run
+## Data Relationships
+
+- users.id → companies.userId  
+- users.id → candidates.userId  
+- companies.id → jobOffers.companyId  
+- jobOffers.id → matches.jobOfferId  
+- candidates.id → matches.candidateId  
+- companies.id → matches.companyId  
+- companies.id → reservations.companyId  
+- candidates.id → reservations.candidateId  
+
+---
+
+## Features
+
+### Authentication
+- Register as company or candidate  
+- Email uniqueness validation  
+- Login with role-based authentication  
+- Session persistence using LocalStorage  
+- Protected routes with guards  
+
+### Company
+- Create and manage company profile  
+- Publish job offers  
+- View candidate matches  
+
+### Candidate
+- Create and update professional profile  
+- Browse job offers  
+- Apply to offers  
+
+---
+
+## How to Run the Project
 
 ### 1. Install JSON Server
+```bash
+npm install -g json-server
+```
 
-- npm install -g json-server
+### 2. Start Backend
+```bash
+json-server --watch db.json --port 3000
+```
 
-### 2. Run Backend
+### 3. Run Frontend
+Open `index.html` using Live Server or directly in your browser.
 
-- json-server --watch db.json --port 3000
 
-### 3. Open Project
-
-- Open the login page with Live Server or directly in browser.
-
-### Notes
-
-- Passwords are stored in plain text (educational use only)
-
-- No SPA implementation
-
-- Fake backend using json-server
