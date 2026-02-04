@@ -1,42 +1,42 @@
 {
-  "companies": [
+  "users": [
     {
-      "id": "1",
-      "role": "company",
-      "name": "Crudzaso Tech",
-      "email": "example@gmail.com",
-      "password": "123456",
-      "industry": "Technology",
-      "size": "51-200",
-      "location": "Medellín, Colombia",
-      "description": "We build fast hiring experiences"
-    },
-    {
-      "id": "fb58",
-      "role": "company",
-      "name": "Vale",
-      "email": "vale@correo.com",
-      "password": "123456",
-      "industry": "",
-      "size": "",
-      "location": "",
-      "description": ""
-    },
-    {
-      "id": "bcdb",
-      "role": "company",
-      "name": "Valentina",
-      "email": "valentina@correo.com",
-      "password": "123456",
-      "industry": "",
-      "size": "",
-      "location": "",
-      "description": ""
+      "companies": [
+        {
+          "id": 1,
+          "role": "company",
+          "name": "Crudzaso Tech",
+          "email": "example@gmail.com",
+          "password": "123456",
+          "industry": "Technology",
+          "size": "51-200",
+          "location": "Medellín, Colombia",
+          "description": "We build fast hiring experiences"
+        }
+      ],
+      "candidates": [
+        {
+          "id": 1,
+          "role": "candidate",
+          "name": "Ana Gómez",
+          "email": "example@gmail.com",
+          "password": "123456",
+          "title": "Frontend Developer",
+          "skills": [
+            "React",
+            "CSS",
+            "JavaScript"
+          ],
+          "openToWork": true,
+          "location": "Bogotá",
+          "experienceYears": 3
+        }
+      ]
     }
   ],
   "jobOffers": [
     {
-      "id": "1",
+      "id": 1,
       "companyId": 1,
       "title": "Frontend Developer",
       "description": "React developer with experience in SPAs",
@@ -44,97 +44,11 @@
       "employmentType": "Full-time",
       "status": "open",
       "createdAt": "2026-01-15"
-    },
-    {
-      "id": "4753",
-      "companyId": 1,
-      "title": "Backend Developer",
-      "description": "Python Developer",
-      "location": "Sabaneta, Antioquia",
-      "employmentType": "Full-time",
-      "status": "open",
-      "createdAt": "2026-01-31"
-    },
-    {
-      "id": "4c45",
-      "companyId": "1",
-      "title": "Frontend Developer",
-      "description": "React Developer",
-      "location": "Remote",
-      "employmentType": "Full-time",
-      "status": "open",
-      "createdAt": "2026-01-31"
-    }
-  ],
-  "candidates": [
-    {
-      "id": "1",
-      "role": "candidate",
-      "name": "Ana Gómez",
-      "email": "example@gmail.com",
-      "password": "123456",
-      "title": "Frontend Developer",
-      "skills": [
-        "React",
-        "CSS",
-        "JavaScript"
-      ],
-      "openToWork": true,
-      "location": "Bogotá",
-      "experienceYears": 3
-    },
-    {
-      "id": "ed58",
-      "role": "candidate",
-      "name": "Faiber",
-      "email": "test1@mega.com",
-      "password": "123456",
-      "title": "",
-      "skills": [],
-      "openToWork": true,
-      "location": "",
-      "experienceYears": 0
-    },
-    {
-      "id": "0799",
-      "role": "candidate",
-      "name": "Daniela Quinto",
-      "email": "dani@correo.com",
-      "password": "123456",
-      "title": "",
-      "skills": [],
-      "openToWork": true,
-      "location": "",
-      "experienceYears": 0
-    },
-    {
-      "id": "2003",
-      "role": "candidate",
-      "name": "Vale",
-      "email": "vale@correo.com",
-      "password": "123456",
-      "title": "",
-      "skills": [],
-      "openToWork": true,
-      "location": "",
-      "experienceYears": 0
-    },
-    {
-      "id": "0151",
-      "role": "candidate",
-      "name": "ryan",
-      "email": "ryan@correo.com",
-      "password": "123456",
-      "title": "",
-      "skills": [],
-      "openToWork": true,
-      "location": "",
-      "experienceYears": 0
     }
   ],
   "matches": [
     {
-      "id": "1",
+      "id": 1,
       "companyId": 1,
       "jobOfferId": 1,
       "candidateId": 1,
@@ -143,7 +57,7 @@
       "contactUnlocked": false
     },
     {
-      "id": "2",
+      "id": 2,
       "companyId": 1,
       "jobOfferId": 1,
       "candidateId": 1,
@@ -154,7 +68,7 @@
   ],
   "reservations": [
     {
-      "id": "1",
+      "id": 1,
       "candidateId": 1,
       "companyId": 1,
       "jobOfferId": 1,
