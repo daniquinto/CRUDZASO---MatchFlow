@@ -112,8 +112,8 @@ function renderProfile() {
 async function renderActiveJobs() {
     activeJobsList.innerHTML = "";
 
-    const res = await fetch("http://localhost:3000/jobOffers");
-    const jobOffers = await res.json();
+    const response = await fetch("http://localhost:3000/jobOffers");
+    const jobOffers = await response.json();
 
     const companyJobs = jobOffers.filter(
         job =>

@@ -1,6 +1,6 @@
 const currentSession = JSON.parse(localStorage.getItem("session"));
 
-const companyId = currentSession.id
+const companyId = currentSession.userId
 
 if (!currentSession) {
     window.location.href = "../../index.html";
@@ -105,8 +105,8 @@ function loadRecentMatches() {
     fetch(`http://localhost:3000/matches`)
         .then(response => response.json())
         .then(matches => {
-            const container = document.querySelector(".divide-y");
-            container.innerHTML = "";
+            const card = document.querySelector("#recent-matches");
+            card.innerHTML = "";
 
             matches.forEach(match => {
                 const div = document.createElement("div");
@@ -114,15 +114,15 @@ function loadRecentMatches() {
 
                 div.innerHTML = `
                     <div>
-                        <p class="font-medium text-deep">Candidate #${match.candidateId}</p>
-                        <p class="text-sm text-deep">Status: ${match.status}</p>
+                        <p class="font-medium text-deep">Candidate ${match.candidateId}</p>
+                        <p class="text-sm text-deep">${match.createdAt}</p>
                     </div>
                     <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">
                         ${match.status}
                     </span>
                 `;
 
-                container.appendChild(div);
+                card.appendChild(div);
             });
         });
 }

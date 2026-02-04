@@ -8,7 +8,7 @@
       "password": "123456",
       "industry": "Technology",
       "location": "Medellín, Colombia",
-      "size": "51-200",
+      "size": "12",
       "description": "We build fast hiring experiences"
     },
     {
@@ -26,7 +26,7 @@
       "industry": "Technology",
       "size": "12",
       "location": "Medellín, Colombia",
-      "description": "We build fast hiring experience"
+      "description": "We build fast hiring experiences"
     }
   ],
   "candidates": [
